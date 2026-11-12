@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="description" content="Prepare verified South African job and opportunity posts for the SpaniXpress Facebook Group.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="spanixpress.css">
+  <title>SpaniXpress Publishing Assistant — BACCU™</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="BACCU Ambition Unleashed home">
+      <span class="brand-mark" aria-hidden="true">B</span>
+      <span class="brand-copy"><strong>BACCU<span>™</span></strong><small>AMBITION UNLEASHED</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav" aria-label="Main navigation">
+      <a href="index.html#opportunities">Opportunity Hub</a>
+      <a href="spanixpress.html" aria-current="page">SpaniXpress</a>
+      <a href="index.html#toolkit">AI Toolkit</a>
+      <a href="index.html#connect">Youth Connect</a>
+    </nav>
+    <a class="header-cta" href="https://www.facebook.com/share/g/1Q8yaPsWVt/" target="_blank" rel="noopener noreferrer">Open SpaniXpress <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main" class="spanix-page">
+    <section class="spanix-hero">
+      <p class="eyebrow">BACCU™ / COMMUNITY DISTRIBUTION</p>
+      <h1>SpaniXpress <em>Publishing Assistant</em></h1>
+      <p>Prepare clear, source-backed opportunity posts for your Facebook group. Review every detail before sharing.</p>
+      <div class="spanix-destination">
+        <span class="destination-mark" aria-hidden="true">S</span>
+        <span><strong>SpaniXpress</strong><small>Facebook Group · Administrator-managed destination</small></span>
+        <a href="https://www.facebook.com/share/g/1Q8yaPsWVt/" target="_blank" rel="noopener noreferrer">Open group ↗</a>
+      </div>
+    </section>
+
+    <section class="spanix-layout" aria-labelledby="builder-title">
+      <div class="spanix-form-panel">
+        <div class="spanix-heading">
+          <p class="eyebrow">01 / PREPARE A VERIFIED POST</p>
+          <h2 id="builder-title">Opportunity <em>details</em></h2>
+          <p>Complete the fields from the employer or programme owner's official source. This tool does not verify vacancies automatically.</p>
+        </div>
+        <form id="spanix-form">
+          <div class="field-grid">
+            <div class="field"><label for="job-title">Opportunity or job title <span>*</span></label><input id="job-title" name="title" required maxlength="120" placeholder="e.g. Retail Assistant"></div>
+            <div class="field"><label for="employer">Employer / provider <span>*</span></label><input id="employer" name="employer" required maxlength="120" placeholder="Official organisation name"></div>
+            <div class="field"><label for="job-location">Location <span>*</span></label><input id="job-location" name="location" required maxlength="120" placeholder="Town, province or nationwide"></div>
+            <div class="field"><label for="job-type">Opportunity type <span>*</span></label><select id="job-type" name="type" required><option value="">Choose one</option><option>Permanent job</option><option>Temporary job</option><option>Part-time job</option><option>Internship</option><option>Learnership</option><option>Graduate programme</option><option>Bursary / study support</option><option>Skills programme</option><option>Other opportunity</option></select></div>
+            <div class="field field-wide"><label for="job-summary">Role / opportunity summary <span>*</span></label><textarea id="job-summary" name="summary" rows="3" required maxlength="700" placeholder="Describe the role or programme using accurate information from the official source."></textarea></div>
+            <div class="field field-wide"><label for="job-eligibility">Requirements / eligibility <span>*</span></label><textarea id="job-eligibility" name="eligibility" rows="3" required maxlength="700" placeholder="List only confirmed requirements."></textarea></div>
+            <div class="field"><label for="job-deadline">Closing date</label><input id="job-deadline" name="deadline" type="date"></div>
+            <div class="field"><label for="job-pay">Salary / stipend (optional)</label><input id="job-pay" name="pay" maxlength="100" placeholder="Only if officially published"></div>
+            <div class="field field-wide"><label for="application-url">Official application / opportunity URL <span>*</span></label><input id="application-url" name="applicationUrl" type="url" required placeholder="https://..."></div>
+            <div class="field field-wide"><label for="source-url">Official source used to verify this opportunity <span>*</span></label><input id="source-url" name="sourceUrl" type="url" required placeholder="Employer or programme owner's official website"></div>
+            <div class="field"><label for="verified-date">Date you checked the official source <span>*</span></label><input id="verified-date" name="verifiedDate" type="date" required></div>
+          </div>
+          <label class="verification-check"><input id="verification-confirm" type="checkbox" required><span>I opened the official source directly. The opportunity is currently open, and the details above match the source. I have not relied only on a social post, search snippet or job aggregator.</span></label>
+          <p class="form-caution">Do not include ID numbers, private contact details, bank information or applicant documents.</p>
+          <div class="form-actions">
+            <button class="button button-gold" type="submit">Prepare Facebook post <span aria-hidden="true">→</span></button>
+            <button class="clear-button" id="clear-draft" type="button">Clear form</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="spanix-output" aria-labelledby="preview-title">
+        <p class="eyebrow">02 / REVIEW BEFORE SHARING</p>
+        <h2 id="preview-title">Post <em>preview</em></h2>
+        <p class="preview-note">Your draft appears here after validation. Check every fact before copying.</p>
+        <div id="verification-status" class="verification-status" role="status" aria-live="polite">No post prepared. Complete the form and confirm your source check.</div>
+        <label for="facebook-caption">Facebook caption</label>
+        <textarea id="facebook-caption" rows="19" readonly placeholder="Your formatted post will appear here."></textarea>
+        <div class="output-actions">
+          <button id="copy-caption" class="button button-gold" type="button" disabled>Copy Facebook caption</button>
+          <button id="copy-application" class="output-button" type="button" disabled>Copy application link</button>
+          <button id="download-image" class="output-button" type="button" disabled>Download post image</button>
+          <a class="output-button output-link" href="https://www.facebook.com/share/g/1Q8yaPsWVt/" target="_blank" rel="noopener noreferrer">Open SpaniXpress group ↗</a>
+          <button id="mark-shared" class="output-button" type="button" disabled>Mark as shared</button>
+        </div>
+        <p id="share-status" class="share-status" aria-live="polite"></p>
+        <div class="api-note"><strong>Publishing boundary</strong><p>BACCU prepares the caption and artwork. Facebook opens separately. You paste, review and publish or schedule inside the group. Direct third-party group publishing is not available through Meta's public Groups API.</p></div>
+      </aside>
+    </section>
+
+    <section class="spanix-rules">
+      <p class="eyebrow">03 / TRUST STANDARD</p>
+      <h2>Accuracy before <em>reach.</em></h2>
+      <div class="rules-grid">
+        <p><strong>Official source first.</strong> Confirm the intake on the employer or programme owner's own website.</p>
+        <p><strong>No invented details.</strong> Never guess salary, deadline, eligibility or application status.</p>
+        <p><strong>Human approval.</strong> Read the finished post and check the links before publishing.</p>
+        <p><strong>Protect applicants.</strong> Warn against fees and never request private documents in group comments.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>BACCU<span>™</span></strong><small>AMBITION UNLEASHED</small></span></a>
+    <p>Built in the Kasi. Driven by Faith. Walk in the Light. ✝</p>
+    <span>© <span id="year"></span> BACCU™</span>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+  <script src="spanixpress.js" defer></script>
+</body>
+</html>
