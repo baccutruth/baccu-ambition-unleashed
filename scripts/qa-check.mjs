@@ -45,6 +45,10 @@ const officialSources = [
 for (const url of officialSources) assert(html.includes(url), 'Official source link missing: ' + url);
 assert(html.indexOf(officialSources[0]) < html.indexOf('https://sayouth.mobi/'), 'Ekurhuleni notice must appear before national directory links');
 
+assert(html.includes('Links marked ↗ open official external websites'), 'External-link guidance missing');
+assert(js.includes('navigator.onLine'), 'Offline link guard missing');
+assert(js.includes('Reconnect to open official external websites'), 'Offline explanation missing');
+assert(js.includes("a[target=\"_blank\"]"), 'External-link click handling missing');
 assert(js.includes('function filterOpportunities()'), 'Search/filter function missing');
 assert(js.includes("dataset.filter"), 'Category filter wiring missing');
 assert(js.includes('generatedPrompt.value='), 'Prompt builder output missing');
