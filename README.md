@@ -17,6 +17,7 @@ Pull requests run release checks but do not deploy. Merge to `main` triggers the
 - Searchable, filterable Opportunity Hub guidance pathways.
 - Daily Wisdom & AI Toolkit with copy-ready prompts and a prompt builder.
 - Civic & Youth Connect official institution links.
+- SpaniXpress Publishing Assistant: copy-ready, human-reviewed Facebook Group posts and branded PNG export.
 - PWA manifest, service-worker app shell and installation guidance.
 - No login, tracking, AI API, paid backend or personal-data collection.
 
