@@ -18,7 +18,9 @@ jobs:
         with:
           node-version: 20
       - name: Check JavaScript syntax
-        run: node --check app.js
+        run: |
+          node --check app.js
+          node --check spanixpress.js
       - name: Check interaction test syntax
         run: node --check scripts/interaction-check.mjs
       - name: Validate static site and PWA assets
