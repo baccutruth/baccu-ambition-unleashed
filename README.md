@@ -61,3 +61,14 @@ The first version uses static HTML, CSS and JavaScript. It does not collect appl
 ## Release controls
 
 No public deployment is authorised by this repository update. Obtain approval before connecting a public domain or publishing a production release.
+
+## Official youth access channels
+
+The platform presents national opportunities with a local priority for Actonville, Benoni and the wider City of Ekurhuleni. Opportunities from every South African province remain eligible for inclusion.
+
+The first two standing access channels are:
+
+1. **City of Ekurhuleni Community Bursary** — [official application portal](https://bursaries.ekurhuleni.gov.za/) and [official 2027 programme notice](https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/). This is a City-resident programme, not a nationwide bursary. The 2027 notice was checked on 12 November 2026 and stated a 30 November 2026 closing date. Recheck the City notice and portal before relying on that intake date.
+2. **SA Youth** — [official platform](https://sayouth.mobi/), [about and eligibility information](https://sayouth.mobi/About/EN), and [registration](https://sayouth.mobi/Join). SA Youth describes its network as free and data-free. Its current published About page states an age range of 18–34; applicants must check the official registration page for current identity and other requirements. Individual opportunities may be location-specific and are not automatically nationwide.
+
+These are official resource channels, not evidence that every programme or vacancy is currently accepting applications. BACCU does not claim a partnership with either provider. Record the source, status and last-verified date for each live listing. Update dated notices after each verification cycle and remove expired calls from the active-opportunity view.
