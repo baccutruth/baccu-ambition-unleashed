@@ -46,7 +46,7 @@ for (const url of officialSources) assert(html.includes(url), 'Official source l
 assert(html.indexOf(officialSources[0]) < html.indexOf('https://sayouth.mobi/'), 'Ekurhuleni notice must appear before national directory links');
 
 assert(js.includes('function filterOpportunities()'), 'Search/filter function missing');
-assert(js.includes("data-filter"), 'Category filter wiring missing');
+assert(js.includes("dataset.filter"), 'Category filter wiring missing');
 assert(js.includes('generatedPrompt.value='), 'Prompt builder output missing');
 assert(js.includes('beforeinstallprompt'), 'Install prompt handler missing');
 assert(js.includes('navigator.serviceWorker.register'), 'Service worker registration missing');
