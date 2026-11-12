@@ -30,7 +30,7 @@ const spanixHtml = readFileSync('spanixpress.html', 'utf8');
 const spanixJs = readFileSync('spanixpress.js', 'utf8');
 for (const id of ['spanix-form', 'verification-confirm', 'facebook-caption', 'copy-caption', 'copy-application', 'download-image', 'mark-shared']) assert(spanixHtml.includes('id="' + id + '"'), 'SpaniXpress control missing: ' + id);
 assert(spanixHtml.includes('https://www.facebook.com/share/g/1Q8yaPsWVt/'), 'SpaniXpress group destination missing');
-assert(spanixJs.includes('function buildCaption'), 'SpaniXpress caption builder missing');
+assert(spanixJs.includes('const buildCaption='), 'SpaniXpress caption builder missing');
 assert(spanixJs.includes('protocol===\'https:\''), 'SpaniXpress HTTPS URL guard missing');
 assert(spanixJs.includes('confirmCheck.checked'), 'SpaniXpress source attestation missing');
 assert(spanixJs.includes('canvas.toBlob'), 'SpaniXpress PNG export missing');
