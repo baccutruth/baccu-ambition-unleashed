@@ -66,9 +66,19 @@ No public deployment is authorised by this repository update. Obtain approval be
 
 The platform presents national opportunities with a local priority for Actonville, Benoni and the wider City of Ekurhuleni. Opportunities from every South African province remain eligible for inclusion.
 
-The first two standing access channels are:
+The standing official channels linked in Civic & Youth Connect are:
 
-1. **City of Ekurhuleni Community Bursary** — [official application portal](https://bursaries.ekurhuleni.gov.za/) and [official 2027 programme notice](https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/). This is a City-resident programme, not a nationwide bursary. The 2027 notice was checked on 12 November 2026 and stated a 30 November 2026 closing date. Recheck the City notice and portal before relying on that intake date.
-2. **SA Youth** — [official platform](https://sayouth.mobi/), [about and eligibility information](https://sayouth.mobi/About/EN), and [registration](https://sayouth.mobi/Join). SA Youth describes its network as free and data-free. Its current published About page states an age range of 18–34; applicants must check the official registration page for current identity and other requirements. Individual opportunities may be location-specific and are not automatically nationwide.
+1. **City of Ekurhuleni Community Bursary** — [application portal](https://bursaries.ekurhuleni.gov.za/) and [2027 programme notice](https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/). City-resident programme, not a national bursary.
+2. **SA Youth** — [official platform](https://sayouth.mobi/), [about and eligibility](https://sayouth.mobi/About/EN), and [registration](https://sayouth.mobi/Join). The network describes itself as free and data-free; individual opportunities may be location-specific.
+3. **South African Government youth opportunities hub** — https://www.gov.za/issues/government-and-opportunities-youth
+4. **NYDA** — https://www.nyda.gov.za/
+5. **NSFAS** — https://www.nsfas.org.za/
+6. **Funza Lushaka** — https://www.funzalushaka.doe.gov.za/
+7. **City of Ekurhuleni eRecruitment** — https://rems.ekurhuleni.gov.za/eRecruitment/
+8. **Godfrey Pitje Tertiary Assistance Fund** — https://gptaf.ekurhuleni.gov.za/
+9. **City of Ekurhuleni youth notices** — https://www.ekurhuleni.gov.za/category/press-releases/youth/
+10. **SEDFA** — https://www.sedfa.org.za/
+11. **MICT SETA** — https://mict.org.za/
+12. **Department of Higher Education and Training** — https://www.dhet.gov.za/
 
-These are official resource channels, not evidence that every programme or vacancy is currently accepting applications. BACCU does not claim a partnership with either provider. Record the source, status and last-verified date for each live listing. Update dated notices after each verification cycle and remove expired calls from the active-opportunity view.
+These are official source directories and portals, not evidence that a particular programme or vacancy is currently accepting applications. A link does not imply a partnership or endorsement. Record the source, eligibility, status, official closing date and last-verified date for every live listing. Remove expired calls from the active-opportunity view. Continue adding official provincial, municipal, university, TVET, SETA and employer sources across all nine provinces.
