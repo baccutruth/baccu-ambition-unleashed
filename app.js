@@ -1,6 +1,7 @@
 const menuButton=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#primary-nav');
 menuButton?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'Close':'Menu';});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav?.classList.contains('open')){nav.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');if(menuButton)menuButton.textContent='Menu';menuButton?.focus?.();}});
 nav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');if(menuButton)menuButton.textContent='Menu';}));
 const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();
 
@@ -66,7 +67,7 @@ window.addEventListener('beforeinstallprompt',event=>{
 });
 installButton?.addEventListener('click',async()=>{
   if(!installPrompt)return;
-  installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true;
+  installPrompt.prompt();const choice=await installPrompt.userChoice;installPrompt=null;installButton.hidden=true;showToast(choice?.outcome==='accepted'?'BACCU installation started.':'Installation was not completed. Use your browser menu to retry.');
 });
 window.addEventListener('appinstalled',()=>showToast('BACCU Ambition Unleashed installed.'));
 
