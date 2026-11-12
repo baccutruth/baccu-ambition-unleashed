@@ -62,6 +62,8 @@ The first version uses static HTML, CSS and JavaScript. It does not collect appl
 
 No public deployment is authorised by this repository update. Obtain approval before connecting a public domain or publishing a production release.
 
+Opportunity publication must follow the [BACCU Opportunity Verification Standard](docs/OPPORTUNITY-VERIFICATION.md). Automated release checks protect the official source directory and its local-priority order.
+
 ## Official youth access channels
 
 The platform presents national opportunities with a local priority for Actonville, Benoni and the wider City of Ekurhuleni. Opportunities from every South African province remain eligible for inclusion.
