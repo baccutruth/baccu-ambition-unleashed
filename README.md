@@ -61,3 +61,24 @@ The first version uses static HTML, CSS and JavaScript. It does not collect appl
 ## Release controls
 
 No public deployment is authorised by this repository update. Obtain approval before connecting a public domain or publishing a production release.
+
+## Official youth access channels
+
+The platform presents national opportunities with a local priority for Actonville, Benoni and the wider City of Ekurhuleni. Opportunities from every South African province remain eligible for inclusion.
+
+The standing official channels linked in Civic & Youth Connect are:
+
+1. **City of Ekurhuleni Community Bursary** — [application portal](https://bursaries.ekurhuleni.gov.za/) and [2027 programme notice](https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/). City-resident programme, not a national bursary.
+2. **SA Youth** — [official platform](https://sayouth.mobi/), [about and eligibility](https://sayouth.mobi/About/EN), and [registration](https://sayouth.mobi/Join). The network describes itself as free and data-free; individual opportunities may be location-specific.
+3. **South African Government youth opportunities hub** — https://www.gov.za/issues/government-and-opportunities-youth
+4. **NYDA** — https://www.nyda.gov.za/
+5. **NSFAS** — https://www.nsfas.org.za/
+6. **Funza Lushaka** — https://www.funzalushaka.doe.gov.za/
+7. **City of Ekurhuleni eRecruitment** — https://rems.ekurhuleni.gov.za/eRecruitment/
+8. **Godfrey Pitje Tertiary Assistance Fund** — https://gptaf.ekurhuleni.gov.za/
+9. **City of Ekurhuleni youth notices** — https://www.ekurhuleni.gov.za/category/press-releases/youth/
+10. **SEDFA** — https://www.sedfa.org.za/
+11. **MICT SETA** — https://mict.org.za/
+12. **Department of Higher Education and Training** — https://www.dhet.gov.za/
+
+These are official source directories and portals, not evidence that a particular programme or vacancy is currently accepting applications. A link does not imply a partnership or endorsement. Record the source, eligibility, status, official closing date and last-verified date for every live listing. Remove expired calls from the active-opportunity view. Continue adding official provincial, municipal, university, TVET, SETA and employer sources across all nine provinces.
