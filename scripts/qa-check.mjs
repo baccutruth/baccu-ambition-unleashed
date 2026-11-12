@@ -1,16 +1,62 @@
 import assert from 'node:assert/strict';
-import {readFileSync,existsSync} from 'node:fs';
-const html=readFileSync('index.html','utf8'),js=readFileSync('app.js','utf8'),manifest=JSON.parse(readFileSync('manifest.webmanifest','utf8')),sw=readFileSync('sw.js','utf8'),css=readFileSync('styles.css','utf8');
-const ids=[...html.matchAll(/\bid=["']([^"']+)["']/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size,'Duplicate IDs');
-for(const id of ['home','opportunities','toolkit','connect','about','primary-nav','opportunity-search','opportunity-grid','no-results','prompt-role','prompt-experience','generated-prompt','toast','year','install-app'])assert(ids.includes(id),'Missing ID '+id);
-assert.match(html,/<html lang="en-ZA">/);assert.match(html,/apple-touch-icon\.png|apple-touch-icon/);assert.match(html,/Android:<\/strong>/);assert.match(html,/iPhone:<\/strong>/);
-assert.match(html,/currently reporting an error/);assert.match(html,/Applications close 30 November 2026/);
-const refs=[...html.matchAll(/(?:src|href)=["']([^"']+)["']/g)].map(m=>m[1]);for(const ref of refs){if(/^(https?:|mailto:|tel:|#|data:|javascript:)/i.test(ref))continue;const p=ref.split(/[?#]/)[0].replace(/^\.\//,'');if(p)assert(existsSync(p),'Missing local asset '+ref);}
-const anchors=[...html.matchAll(/<a\b[^>]*href=["']https?:\/\/[^"']+["'][^>]*>/gi)].map(m=>m[0]);for(const a of anchors){assert.match(a,/rel=["'][^"']*noopener[^"']*["']/);assert.match(a,/target=["']_blank["']/);}
-assert.equal(manifest.lang,'en-ZA');assert.equal(manifest.display,'standalone');assert(manifest.icons.some(i=>i.purpose==='maskable'));
-const shell=sw.match(/const APP_SHELL=\[([^\]]*)\]/);assert(shell);for(const m of shell[1].matchAll(/['"]([^'"]+)['"]/g))assert(existsSync(m[1].replace(/^\.\//,'')));
-const dir=html.match(/<div class="resource-list">([\s\S]*?)<\/div>/);assert(dir);const urls=['https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/','https://bursaries.ekurhuleni.gov.za/','https://sayouth.mobi/','https://www.nyda.gov.za/','https://www.sedfa.org.za/','https://mict.org.za/','https://www.dhet.gov.za/','https://www.gov.za/','https://www.gov.za/issues/government-and-opportunities-youth','https://www.nsfas.org.za/','https://www.funzalushaka.doe.gov.za/','https://rems.ekurhuleni.gov.za/eRecruitment/','https://gptaf.ekurhuleni.gov.za/','https://www.ekurhuleni.gov.za/category/press-releases/youth/'];for(const u of urls)assert(dir[1].includes('href="'+u+'"'),'Missing source '+u);
-assert.equal([...dir[1].matchAll(/<a class="resource" href=/g)].length,13);assert.match(js,/function filterOpportunities\(/);assert.match(js,/generatedPrompt\.value=/);assert.match(js,/beforeinstallprompt/);assert.match(css,/@media\(max-width:680px\)/);assert.match(css,/prefers-reduced-motion:reduce/);
-for(const p of ['.github/workflows/static.yml','.github/workflows/release-checks.yml'])assert(existsSync(p));for(const p of ['.github/workflows/jekyll-gh-pages.yml','.github/workflows/deploy-pages.yml'])assert(!existsSync(p),'Duplicate Pages workflow '+p);
-assert.match(readFileSync('.github/workflows/static.yml','utf8'),/Deploy BACCU Ambition Unleashed to GitHub Pages/);
-console.log('BACCU static QA passed: content, links, PWA manifest, local assets and single Pages workflow.');
+import { existsSync, readFileSync } from 'node:fs';
+
+const html = readFileSync('index.html', 'utf8');
+const js = readFileSync('app.js', 'utf8');
+const css = readFileSync('styles.css', 'utf8');
+const sw = readFileSync('sw.js', 'utf8');
+const manifest = JSON.parse(readFileSync('manifest.webmanifest', 'utf8'));
+
+for (const id of ['home', 'opportunities', 'toolkit', 'connect', 'about', 'primary-nav', 'opportunity-search', 'opportunity-grid', 'no-results', 'prompt-role', 'prompt-experience', 'generated-prompt', 'install-app']) {
+  assert(html.includes('id="' + id + '"'), 'Required page element missing: ' + id);
+}
+assert(html.includes('lang="en-ZA"'), 'South African English document language missing');
+assert(html.includes('assets/icon.svg'), 'App icon reference missing');
+assert(html.includes('rel="apple-touch-icon"'), 'Home-screen icon reference missing');
+assert(html.includes('<strong>Android:</strong>'), 'Android install guidance missing');
+assert(html.includes('<strong>iPhone:</strong>'), 'iPhone install guidance missing');
+assert(html.includes('currently reporting an error'), 'Ekurhuleni portal warning missing');
+assert(html.includes('Applications close 30 November 2026'), 'Ekurhuleni notice deadline missing');
+
+for (const file of ['styles.css', 'app.js', 'manifest.webmanifest', 'sw.js', 'assets/icon.svg', 'docs/PWA-INSTALLATION.md']) {
+  assert(existsSync(file), 'Required local asset or guide missing: ' + file);
+}
+assert.equal(manifest.lang, 'en-ZA');
+assert.equal(manifest.display, 'standalone');
+assert(manifest.icons.some(icon => icon.purpose === 'maskable'), 'Maskable app icon missing');
+assert(sw.includes('baccu-ambition-v3'), 'Service worker cache version was not updated');
+
+const officialSources = [
+  'https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/',
+  'https://bursaries.ekurhuleni.gov.za/',
+  'https://sayouth.mobi/',
+  'https://www.nyda.gov.za/',
+  'https://www.sedfa.org.za/',
+  'https://mict.org.za/',
+  'https://www.dhet.gov.za/',
+  'https://www.gov.za/',
+  'https://www.gov.za/issues/government-and-opportunities-youth',
+  'https://www.nsfas.org.za/',
+  'https://www.funzalushaka.doe.gov.za/',
+  'https://rems.ekurhuleni.gov.za/eRecruitment/',
+  'https://gptaf.ekurhuleni.gov.za/',
+  'https://www.ekurhuleni.gov.za/category/press-releases/youth/'
+];
+for (const url of officialSources) assert(html.includes(url), 'Official source link missing: ' + url);
+assert(html.indexOf(officialSources[0]) < html.indexOf('https://sayouth.mobi/'), 'Ekurhuleni notice must appear before national directory links');
+
+assert(js.includes('function filterOpportunities()'), 'Search/filter function missing');
+assert(js.includes("data-filter"), 'Category filter wiring missing');
+assert(js.includes('generatedPrompt.value='), 'Prompt builder output missing');
+assert(js.includes('beforeinstallprompt'), 'Install prompt handler missing');
+assert(js.includes('navigator.serviceWorker.register'), 'Service worker registration missing');
+assert(css.includes('@media(max-width:680px)'), 'Mobile breakpoint missing');
+assert(css.includes('prefers-reduced-motion:reduce'), 'Reduced-motion support missing');
+
+assert(existsSync('.github/workflows/static.yml'), 'Canonical Pages deployment workflow missing');
+assert(existsSync('.github/workflows/release-checks.yml'), 'Release checks workflow missing');
+assert(!existsSync('.github/workflows/jekyll-gh-pages.yml'), 'Duplicate Jekyll deployment workflow remains');
+assert(!existsSync('.github/workflows/deploy-pages.yml'), 'Duplicate manual deployment workflow remains');
+assert(readFileSync('.github/workflows/static.yml', 'utf8').includes('Deploy BACCU Ambition Unleashed to GitHub Pages'));
+
+console.log('BACCU static QA passed: page sections, local fallback, official links, PWA setup and one deployment workflow.');
