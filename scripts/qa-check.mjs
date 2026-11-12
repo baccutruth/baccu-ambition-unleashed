@@ -10,6 +10,7 @@ const manifest = JSON.parse(readFileSync('manifest.webmanifest', 'utf8'));
 for (const id of ['home', 'opportunities', 'toolkit', 'connect', 'about', 'primary-nav', 'opportunity-search', 'opportunity-grid', 'no-results', 'prompt-role', 'prompt-experience', 'generated-prompt', 'install-app']) {
   assert(html.includes('id="' + id + '"'), 'Required page element missing: ' + id);
 }
+assert(html.includes('id="network-status"'), 'Offline status element missing');
 assert(html.includes('lang="en-ZA"'), 'South African English document language missing');
 assert(html.includes('assets/icon.svg'), 'App icon reference missing');
 assert(html.includes('rel="apple-touch-icon"'), 'Home-screen icon reference missing');
