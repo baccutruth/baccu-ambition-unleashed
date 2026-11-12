@@ -51,7 +51,7 @@ for (const path of shellPaths) {
   if (localPath) assert(existsSync(localPath), 'Service worker cache asset is missing: ' + path);
 }
 
-const sourceDirectory = html.match(/<div class="resource-list">([\\s\\S]*?)<\\/div>/);
+const sourceDirectory = html.match(/<div class="resource-list">([\s\S]*?)<\/div>/);
 assert(sourceDirectory, 'Official source directory is missing');
 const requiredOfficialSources = [
   'https://bursaries.ekurhuleni.gov.za/',
@@ -71,7 +71,7 @@ const requiredOfficialSources = [
 for (const source of requiredOfficialSources) {
   assert(sourceDirectory[1].includes('href="' + source + '"'), 'Missing official source link: ' + source);
 }
-const sourceCards = [...sourceDirectory[1].matchAll(/<a class="resource"\\b/g)];
+const sourceCards = [...sourceDirectory[1].matchAll(/<a class="resource" href=/g)];
 assert.equal(sourceCards.length, requiredOfficialSources.length, 'Official source directory count changed; review before release');
 assert.match(sourceDirectory[1], /City of Ekurhuleni — Community Bursary/, 'Local Ekurhuleni source must remain first');
 assert.match(sourceDirectory[1], /SA Youth/, 'National SA Youth channel must remain in the directory');
