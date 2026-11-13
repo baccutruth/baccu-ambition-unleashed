@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta name="description" content="BACCU Ecosystem Concierge: discover official South African opportunity sources and continue directly to provider websites.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="concierge.css">
+  <title>BACCU Ecosystem Concierge — Ambition Unleashed</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="BACCU Ambition Unleashed home"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>BACCU<span>™</span></strong><small>AMBITION UNLEASHED</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav" aria-label="Main navigation">
+      <a href="index.html#opportunities">Opportunity Hub</a>
+      <a href="index.html#toolkit">AI Toolkit</a>
+      <a href="index.html#connect">Youth Connect</a>
+      <a href="index.html#about">About BACCU</a>
+      <a href="spanixpress.html">SpaniXpress</a>
+    </nav>
+    <a class="header-cta" href="index.html">Back to platform <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="concierge-page">
+    <section class="concierge-hero">
+      <p class="eyebrow">BACCU™ / GUIDED ACCESS</p>
+      <p class="concierge-kicker">THE BACCU ECOSYSTEM</p>
+      <h1>Ecosystem <em>Concierge</em></h1>
+      <p>One starting point. Official sources. Clear next steps.</p>
+      <div class="concierge-promise"><span>01 / DISCOVER</span><span>02 / VERIFY</span><span>03 / APPLY DIRECTLY</span><span>04 / SHARE RESPONSIBLY</span></div>
+    </section>
+    <section class="concierge-section" aria-labelledby="source-title">
+      <div class="concierge-heading">
+        <div><p class="eyebrow">01 / OFFICIAL SOURCE DIRECTORY</p><h2 id="source-title">Find the <em>real opportunity.</em></h2></div>
+        <p>Search official provider channels. Open the original website to read the full notice, requirements and application instructions.</p>
+      </div>
+      <label class="concierge-search"><span aria-hidden="true">⌕</span><span class="sr-only">Search official sources</span><input id="source-search" type="search" placeholder="Search jobs, bursaries, learnerships or providers..." autocomplete="off"></label>
+      <div class="concierge-filters" role="group" aria-label="Filter official sources">
+        <button class="source-filter active" type="button" data-source-filter="all" aria-pressed="true">All sources</button>
+        <button class="source-filter" type="button" data-source-filter="jobs" aria-pressed="false">Jobs</button>
+        <button class="source-filter" type="button" data-source-filter="youth" aria-pressed="false">Youth</button>
+        <button class="source-filter" type="button" data-source-filter="study" aria-pressed="false">Study</button>
+        <button class="source-filter" type="button" data-source-filter="local" aria-pressed="false">Ekurhuleni</button>
+      </div>
+      <div id="source-grid" class="source-grid">
+        <article class="source-card" data-categories="jobs youth" data-provider="South African Government">
+          <span class="source-type">NATIONAL · GOVERNMENT</span><h3>Government jobs this week</h3>
+          <p>Weekly Public Service Vacancy Circular. Open the current circular and follow each department's own application instructions.</p>
+          <div class="source-meta"><span>Official source</span><span>Weekly notice</span></div>
+          <a href="https://www.gov.za/government-jobs-week" target="_blank" rel="noopener noreferrer">Open current government vacancies ↗</a>
+        </article>
+        <article class="source-card" data-categories="jobs" data-provider="Department of Employment and Labour">
+          <span class="source-type">NATIONAL · DEPARTMENT</span><h3>Department of Employment and Labour</h3>
+          <p>Departmental vacancy list with post references, closing dates and vacancy status.</p>
+          <div class="source-meta"><span>Official source</span><span>Vacancy list</span></div>
+          <a href="https://www.labour.gov.za/Vacancies/Pages/Vacancies-List.aspx" target="_blank" rel="noopener noreferrer">Open departmental vacancy list ↗</a>
+        </article>
+        <article class="source-card" data-categories="jobs youth" data-provider="SA Youth" data-keywords="learnership learnerships">
+          <span class="source-type">NATIONAL · YOUTH NETWORK</span><h3>SA Youth network</h3>
+          <p>Work, learning and skills opportunities. Listings and eligibility vary by location and programme.</p>
+          <div class="source-meta"><span>Official network</span><span>Live portal</span></div>
+          <a href="https://sayouth.mobi/" target="_blank" rel="noopener noreferrer">Open SA Youth portal ↗</a>
+        </article>
+        <article class="source-card" data-categories="jobs local" data-provider="City of Ekurhuleni">
+          <span class="source-type">LOCAL PRIORITY · EKURHULENI</span><h3>City of Ekurhuleni eRecruitment</h3>
+          <p>Municipal vacancies and official recruitment information. Confirm the closing date on each notice.</p>
+          <div class="source-meta"><span>Official municipal site</span><span>Local priority</span></div>
+          <a href="https://rems.ekurhuleni.gov.za/eRecruitment/" target="_blank" rel="noopener noreferrer">Open City recruitment site ↗</a>
+        </article>
+        <article class="source-card" data-categories="youth" data-provider="National Youth Development Agency">
+          <span class="source-type">NATIONAL · YOUTH DEVELOPMENT</span><h3>National Youth Development Agency</h3>
+          <p>Youth development services, enterprise support and programme announcements.</p>
+          <div class="source-meta"><span>Official agency</span><span>Programme notices</span></div>
+          <a href="https://www.nyda.gov.za/" target="_blank" rel="noopener noreferrer">Open NYDA website ↗</a>
+        </article>
+        <article class="source-card" data-categories="study youth" data-provider="NSFAS" data-keywords="bursary bursaries">
+          <span class="source-type">NATIONAL · STUDENT FUNDING</span><h3>National Student Financial Aid Scheme</h3>
+          <p>Official student funding information, application windows and applicant guidance.</p>
+          <div class="source-meta"><span>Official scheme</span><span>Check current intake</span></div>
+          <a href="https://www.nsfas.org.za/" target="_blank" rel="noopener noreferrer">Open NSFAS website ↗</a>
+        </article>
+        <article class="source-card" data-categories="study" data-provider="Funza Lushaka" data-keywords="bursaries">
+          <span class="source-type">NATIONAL · TEACHING BURSARY</span><h3>Funza Lushaka Bursary</h3>
+          <p>Teaching bursary information and the official application portal.</p>
+          <div class="source-meta"><span>Official bursary</span><span>Check current intake</span></div>
+          <a href="https://www.funzalushaka.doe.gov.za/" target="_blank" rel="noopener noreferrer">Open Funza Lushaka portal ↗</a>
+        </article>
+        <article class="source-card" data-categories="youth local" data-provider="City of Ekurhuleni Youth">
+          <span class="source-type">LOCAL PRIORITY · YOUTH</span><h3>City of Ekurhuleni youth notices</h3>
+          <p>Official municipal youth, skills and community programme announcements.</p>
+          <div class="source-meta"><span>Official City notices</span><span>Check each notice</span></div>
+          <a href="https://www.ekurhuleni.gov.za/category/press-releases/youth/" target="_blank" rel="noopener noreferrer">Open youth announcements ↗</a>
+        </article>
+      </div>
+      <p id="source-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p id="source-empty" class="source-empty" hidden>No sources match that search. Try another keyword.</p>
+      <p class="source-disclaimer">These are official source channels, not a claim that every opportunity is open. BACCU does not certify a vacancy merely because its provider is listed here. Check the specific notice, deadline, eligibility and application URL on the provider's website.</p>
+    </section>
+    <section class="verify-section">
+      <div class="verify-copy"><p class="eyebrow">02 / BEFORE YOU APPLY</p><h2>Verify before <em>you move.</em></h2><p>Use this quick check on the original provider website.</p></div>
+      <ol class="verify-list">
+        <li><strong>Confirm the employer.</strong><span>The website belongs to the actual employer, department or programme owner.</span></li>
+        <li><strong>Check the closing date.</strong><span>The application window is still open today.</span></li>
+        <li><strong>Read eligibility carefully.</strong><span>Age, location, qualifications and documents match the official notice.</span></li>
+        <li><strong>Follow the original application route.</strong><span>Use the provider's own portal. Never pay someone to secure a job.</span></li>
+      </ol>
+    </section>
+    <section class="concierge-next">
+      <div><p class="eyebrow">03 / SHARE A VERIFIED OPPORTUNITY</p><h2>Ready to inform the <em>community?</em></h2><p>After checking the employer's original notice, prepare a clear post for human review.</p></div>
+      <a class="button button-gold" href="spanixpress.html">Open SpaniXpress <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="footer">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>BACCU<span>™</span></strong><small>AMBITION UNLEASHED</small></span></a>
+    <p>Built in the Kasi. Driven by Faith. Walk in the Light. ✝</p><span>© <span id="year"></span> BACCU™</span>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+  <script src="concierge.js" defer></script>
+</body>
+</html>
