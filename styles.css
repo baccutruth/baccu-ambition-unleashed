@@ -67,3 +67,21 @@ body{background:var(--black);color:var(--white)}
   .nav-icon{width:18px;height:18px;flex-basis:18px}
   .pattern-divider{height:22px}
 }
+
+/* Data-driven Opportunity Hub */
+.status-badge{display:inline-flex;align-items:center;max-width:66%;padding:5px 8px;border:1px solid var(--line);color:#d8d2c3;background:#151515;font-size:8px;font-weight:700;line-height:1.35;letter-spacing:.04em}
+.status-badge.is-open{color:#f5f5f5;border-color:#6b0f1a;background:#6b0f1a}
+.status-badge.is-guidance{color:#d4af37}
+.opportunity-card dl div{grid-template-columns:minmax(112px,128px) minmax(0,1fr)}
+.opportunity-card dd{overflow-wrap:anywhere}
+.opportunity-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px}
+.card-source{font-size:10px;font-weight:700;color:#d4af37;text-decoration:none;white-space:nowrap}
+.card-source:hover{text-decoration:underline}
+.opportunity-apply{font-size:10px;padding:10px 12px;white-space:nowrap}
+#opportunity-loading{color:#c7c2b5;background:#111;border-color:var(--line)}
+@media(max-width:680px){
+  .status-badge{max-width:70%;font-size:7px}
+  .opportunity-card dl div{grid-template-columns:100px minmax(0,1fr)}
+  .opportunity-actions{align-items:stretch;flex-direction:column}
+  .opportunity-apply{width:100%}
+}
