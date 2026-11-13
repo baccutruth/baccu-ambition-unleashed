@@ -108,7 +108,7 @@
     const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=630;
     const ctx=canvas.getContext('2d');ctx.fillStyle='#0A0A0A';ctx.fillRect(0,0,1200,630);
     ctx.strokeStyle='#D4AF37';ctx.lineWidth=2;ctx.strokeRect(38,38,1124,554);
-    ctx.fillStyle='#D4AF37';ctx.font='bold 24px Arial';ctx.fillText('SPANI XPRESS  /  VERIFIED SOURCE CHECKED',78,105);
+    ctx.fillStyle='#D4AF37';ctx.font='bold 24px Arial';ctx.fillText('SPANI XPRESS  /  SOURCE CHECKED BY ADMIN',78,105);
     ctx.fillStyle='#F5F5F5';ctx.font='bold 54px Georgia';wrapText(ctx,current.title,78,205,1000,66,2);
     ctx.fillStyle='#D4AF37';ctx.font='28px Arial';ctx.fillText(current.employer,78,365);
     ctx.fillStyle='#F5F5F5';ctx.font='25px Arial';ctx.fillText(current.location,78,420);
