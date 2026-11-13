@@ -60,17 +60,72 @@ document.querySelector('#build-prompt')?.addEventListener('click',()=>{
 });
 document.querySelector('#copy-built-prompt')?.addEventListener('click',()=>copyText(generatedPrompt?.value||''));
 
-let installPrompt=null;
+let deferredInstallPrompt=null;
+const installBanner=document.querySelector('#install-banner');
+const installMessage=document.querySelector('#install-message');
 const installButton=document.querySelector('#install-app');
+const dismissInstallButton=document.querySelector('#dismiss-install');
+const installDismissKey='baccu-install-banner-dismissed';
+
+function isInstalled(){
+  return window.matchMedia?.('(display-mode: standalone)').matches||navigator.standalone===true;
+}
+function wasInstallBannerDismissed(){
+  try{return localStorage.getItem(installDismissKey)==='yes';}catch(error){return false;}
+}
+function dismissInstallBanner(){
+  if(installBanner)installBanner.hidden=true;
+  try{localStorage.setItem(installDismissKey,'yes');}catch(error){}
+}
+function showInstallBanner(){
+  if(installBanner&&!isInstalled()&&!wasInstallBannerDismissed())installBanner.hidden=false;
+}
+function setManualInstallHelp(){
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(installMessage)installMessage.textContent=ios
+    ?'In Safari, tap Share, then Add to Home Screen.'
+    :'Open your browser menu and choose Install app or Add to Home Screen.';
+  if(installButton)installButton.textContent='How to install';
+}
+
 window.addEventListener('beforeinstallprompt',event=>{
-  event.preventDefault();installPrompt=event;if(installButton)installButton.hidden=false;
+  event.preventDefault();
+  deferredInstallPrompt=event;
+  if(installMessage)installMessage.textContent='Install BACCU for quick access and offline use.';
+  if(installButton)installButton.textContent='Install App';
+  showInstallBanner();
 });
 installButton?.addEventListener('click',async()=>{
-  if(!installPrompt)return;
-  installPrompt.prompt();const choice=await installPrompt.userChoice;installPrompt=null;installButton.hidden=true;showToast(choice?.outcome==='accepted'?'BACCU installation started.':'Installation was not completed. Use your browser menu to retry.');
+  if(!deferredInstallPrompt){
+    setManualInstallHelp();
+    if(installButton)installButton.textContent='Got it';
+    installButton?.addEventListener('click',dismissInstallBanner,{once:true});
+    return;
+  }
+  deferredInstallPrompt.prompt();
+  const choice=await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt=null;
+  if(choice?.outcome==='accepted'){
+    dismissInstallBanner();
+    showToast('BACCU installation started.');
+  }else{
+    showToast('Installation was not completed. You can try again from your browser menu.');
+  }
 });
-window.addEventListener('appinstalled',()=>showToast('BACCU Ambition Unleashed installed.'));
+dismissInstallButton?.addEventListener('click',dismissInstallBanner);
+window.addEventListener('appinstalled',()=>{
+  dismissInstallBanner();
+  showToast('BACCU Ambition Unleashed installed.');
+});
 
-if('serviceWorker'in navigator&&/^https?:$/.test(location.protocol)){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>showToast('Offline support could not be enabled in this browser.')));
+if(!isInstalled()){
+  setManualInstallHelp();
+  window.addEventListener('load',showInstallBanner,{once:true});
+}
+
+if('serviceWorker'in navigator&&window.isSecureContext){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register(new URL('./sw.js',document.baseURI),{scope:'./'})
+      .catch(()=>showToast('Offline support could not be enabled in this browser.'));
+  },{once:true});
 }
