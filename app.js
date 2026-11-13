@@ -80,6 +80,7 @@ function dismissInstallBanner(){
 function showInstallBanner(){
   if(installBanner&&!isInstalled()&&!wasInstallBannerDismissed())installBanner.hidden=false;
 }
+let manualInstallHelpShown=false;
 function setManualInstallHelp(){
   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   if(installMessage)installMessage.textContent=ios
@@ -97,9 +98,10 @@ window.addEventListener('beforeinstallprompt',event=>{
 });
 installButton?.addEventListener('click',async()=>{
   if(!deferredInstallPrompt){
+    if(manualInstallHelpShown){dismissInstallBanner();return;}
     setManualInstallHelp();
+    manualInstallHelpShown=true;
     if(installButton)installButton.textContent='Got it';
-    installButton?.addEventListener('click',dismissInstallBanner,{once:true});
     return;
   }
   deferredInstallPrompt.prompt();
