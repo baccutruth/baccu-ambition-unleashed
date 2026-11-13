@@ -17,6 +17,8 @@ Pull requests run release checks but do not deploy. Merge to `main` triggers the
 - Searchable, filterable Opportunity Hub guidance pathways.
 - Daily Wisdom & AI Toolkit with copy-ready prompts and a prompt builder.
 - Civic & Youth Connect official institution links.
+- Five-destination homepage: Opportunity Hub, AI Toolkit, Youth Connect, About BACCU and SpaniXpress.
+- BACCU Ecosystem Concierge: searchable official-source directory, verification checklist and direct provider-site links.
 - SpaniXpress Publishing Assistant: copy-ready, human-reviewed Facebook Group posts and branded PNG export.
 - PWA manifest, service-worker app shell and installation guidance.
 - No login, tracking, AI API, paid backend or personal-data collection.
@@ -28,6 +30,12 @@ The City's official 2027 notice states that applications close **30 November 202
 The Opportunity Hub is not a live vacancies feed. Do not infer deadlines, amounts, eligibility or availability. Do not imply partnerships. Every live listing must include provider, official source, title, type, eligibility, location, status, deadline where stated, application steps, direct official URL and last-checked date. See [verification standard](docs/OPPORTUNITY-VERIFICATION.md).
 
 National opportunities remain eligible across all nine provinces. Display order prioritises Actonville, Benoni and Ekurhuleni, then the rest of Gauteng, then the rest of South Africa.
+
+## BACCU Ecosystem Concierge
+
+The [Ecosystem Concierge](concierge.html) is a guided directory of official South African opportunity sources. It helps users discover source websites, then opens the original provider site in a separate browser tab so users can continue reading and applying there. Source-directory inclusion does not mean a specific vacancy is open or verified. Every listing must be checked on its original provider page.
+
+The current Concierge is a lightweight source directory, not yet an automatically refreshed vacancy database. Automated source monitoring and new-post preparation are a separate release phase; no live scraping or automatic Facebook Group publishing is claimed.
 
 ## SpaniXpress publishing assistant
 
