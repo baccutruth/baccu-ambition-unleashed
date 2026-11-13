@@ -64,6 +64,7 @@ function createOpportunityCard(item){
   addOpportunityField(details,'Opportunity Type',item.opportunity_type);
   addOpportunityField(details,'Eligibility',item.eligibility);
   addOpportunityField(details,'Location',item.location);
+  addOpportunityField(details,'Application Steps',item.application_steps);
   addOpportunityField(details,'Official Closing Date',item.closing_date);
   addOpportunityField(details,'Last Verified Date',formatVerifiedDate(item.last_verified_date||''));
   card.append(details);
