@@ -10,6 +10,7 @@ const manifest = JSON.parse(readFileSync('manifest.webmanifest', 'utf8'));
 for (const id of ['home', 'opportunities', 'toolkit', 'connect', 'about', 'primary-nav', 'opportunity-search', 'opportunity-grid', 'no-results', 'prompt-role', 'prompt-experience', 'generated-prompt', 'install-app']) {
   assert(html.includes('id="' + id + '"'), 'Required page element missing: ' + id);
 }
+assert(html.includes('id="network-status"'), 'Offline status element missing');
 assert(html.includes('lang="en-ZA"'), 'South African English document language missing');
 assert(html.includes('assets/icon.svg'), 'App icon reference missing');
 assert(html.includes('rel="apple-touch-icon"'), 'Home-screen icon reference missing');
@@ -45,6 +46,10 @@ const officialSources = [
 for (const url of officialSources) assert(html.includes(url), 'Official source link missing: ' + url);
 assert(html.indexOf(officialSources[0]) < html.indexOf('https://sayouth.mobi/'), 'Ekurhuleni notice must appear before national directory links');
 
+assert(html.includes('Links marked ↗ open official external websites'), 'External-link guidance missing');
+assert(js.includes('navigator.onLine'), 'Offline link guard missing');
+assert(js.includes('Reconnect to open official external websites'), 'Offline explanation missing');
+assert(js.includes("a[target=\"_blank\"]"), 'External-link click handling missing');
 assert(js.includes('function filterOpportunities()'), 'Search/filter function missing');
 assert(js.includes("dataset.filter"), 'Category filter wiring missing');
 assert(js.includes('generatedPrompt.value='), 'Prompt builder output missing');

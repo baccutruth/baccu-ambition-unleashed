@@ -16,7 +16,7 @@
 iOS does not use Android's `beforeinstallprompt` event, so the install button may not appear there.
 
 ## Offline expectations
-The service worker caches the local app shell. External opportunity providers still require internet. Offline mode does not refresh deadlines or verify current status.
+The service worker caches the local app shell. The homepage, internal sections, search and filters can remain available offline after the first successful load. External provider links open separate websites and require internet. While offline, BACCU displays a notice and prevents external links from opening an unhelpful browser error page. Reconnect to open official provider websites. Offline mode does not refresh deadlines or verify current status.
 
 ## Physical-device QA
 - [ ] Android Chrome installation completed.
