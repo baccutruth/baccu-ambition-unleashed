@@ -36,6 +36,21 @@ function showToast(message){
   toast.textContent=message;toast.classList.add('show');
   clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
 }
+const offlineMessage="You're offline. BACCU's saved pages still work. Reconnect to open official external websites.";
+function updateNetworkStatus(){
+  const status=document.querySelector('#network-status');if(!status)return;
+  status.textContent=offlineMessage;status.hidden=navigator.onLine;
+}
+window.addEventListener('online',()=>{updateNetworkStatus();showToast('You are back online. Official external websites can now open.');});
+window.addEventListener('offline',()=>{updateNetworkStatus();showToast(offlineMessage);});
+updateNetworkStatus();
+document.addEventListener('click',event=>{
+  const link=event.target.closest?.('a[target="_blank"]');if(!link)return;
+  const destination=new URL(link.href,location.href);
+  if(destination.origin!==location.origin&&!navigator.onLine){
+    event.preventDefault();showToast(offlineMessage);
+  }
+});
 async function copyText(value){
   if(!value){showToast('There is no prompt to copy yet.');return;}
   try{

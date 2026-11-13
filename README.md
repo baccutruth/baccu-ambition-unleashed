@@ -37,7 +37,7 @@ The [SpaniXpress assistant](spanixpress.html) prepares a Facebook caption and op
 
 Android: open the site in Chrome and use its Install app prompt or menu → Install app / Add to Home screen. iPhone: open in Safari, Share → Add to Home Screen. Options vary by device. Device testing remains part of release QA.
 
-The service worker caches the local app shell. External provider sites still need an internet connection.
+The service worker caches the local app shell. The homepage, internal sections, search and filters remain available offline after the first successful load. BACCU explains when external provider websites need internet and prevents offline link clicks from opening an unhelpful browser error page.
 
 ## Privacy and cost
 
