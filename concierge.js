@@ -3,6 +3,7 @@
   const cards=[...document.querySelectorAll('.source-card')];
   const filters=[...document.querySelectorAll('.source-filter')];
   const empty=document.querySelector('#source-empty');
+  const status=document.querySelector('#source-status');
   let active='all';
   function apply(){
     const term=(search?.value||'').trim().toLocaleLowerCase();
@@ -10,11 +11,12 @@
     cards.forEach(card=>{
       const cats=(card.dataset.categories||'').split(/\s+/);
       const matchesCategory=active==='all'||cats.includes(active);
-      const matchesText=card.textContent.toLocaleLowerCase().includes(term)||(card.dataset.provider||'').toLocaleLowerCase().includes(term);
+      const matchesText=card.textContent.toLocaleLowerCase().includes(term)||(card.dataset.provider||'').toLocaleLowerCase().includes(term)||(card.dataset.keywords||'').toLocaleLowerCase().includes(term);
       const visible=matchesCategory&&matchesText;
       card.hidden=!visible;if(visible)count++;
     });
     if(empty)empty.hidden=count!==0;
+    if(status)status.textContent=count===0?'No sources match that search. Try another keyword.':'';
   }
   search?.addEventListener('input',apply);
   filters.forEach(button=>button.addEventListener('click',()=>{
