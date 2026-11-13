@@ -6,7 +6,9 @@
   <meta name="theme-color" content="#0A0A0A">
   <meta name="description" content="Discover credible opportunity pathways, build practical skills and connect with youth support in South Africa.">
   <meta name="color-scheme" content="dark">
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icon.svg">
   <link rel="stylesheet" href="styles.css">
@@ -28,6 +30,15 @@
     </nav>
     <a class="header-cta" href="#opportunities">Find your next step <span aria-hidden="true">↗</span></a>
   </header>
+
+  <aside id="install-banner" class="install-banner" aria-label="Install BACCU" aria-live="polite" hidden>
+    <div class="install-banner-copy">
+      <strong>Take BACCU with you</strong>
+      <p id="install-message">Install the app for quick access and offline use.</p>
+    </div>
+    <button id="install-app" class="install-action" type="button">Install App</button>
+    <button id="dismiss-install" class="install-dismiss" type="button" aria-label="Dismiss install prompt">×</button>
+  </aside>
 
   <main id="main">
     <section id="home" class="hero">
@@ -181,7 +192,7 @@
     <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>BACCU<span>™</span></strong><small>AMBITION UNLEASHED</small></span></a>
     <div class="footer-about"><strong>About BACCU</strong><p>A South African youth platform for useful opportunity pathways, practical learning and credible public resources.</p><p class="footer-disclaimer">Educational purposes only. Opportunities depend on provider requirements, eligibility and selection. BACCU does not guarantee employment, funding or earnings.</p></div>
     <p>Built in the Kasi. Driven by Faith. Walk in the Light. ✝</p>
-    <div class="footer-tools"><button id="install-app" type="button" hidden>Install app</button><span>© <span id="year"></span> BACCU™</span></div><p class="install-help"><strong>Android:</strong> Chrome menu → Install app / Add to Home screen. <strong>iPhone:</strong> Safari Share → Add to Home Screen. Options vary by device.</p>
+    <div class="footer-tools"><span>© <span id="year"></span> BACCU™</span></div><p class="install-help"><strong>Android:</strong> Chrome menu → Install app / Add to Home screen. <strong>iPhone:</strong> Safari Share → Add to Home Screen. Options vary by device.</p>
   </footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js" defer></script>
