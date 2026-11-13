@@ -1,9 +1,10 @@
-const CACHE_NAME = 'baccu-ambition-v5';
+const CACHE_NAME = 'baccu-ambition-v6';
 const APP_SHELL = [
   './',
   './index.html',
   './styles.css',
   './app.js',
+  './data/opportunities.json',
   './manifest.json',
   './manifest.webmanifest',
   './assets/icon.svg',
@@ -12,7 +13,7 @@ const APP_SHELL = [
   './spanixpress.js'
 ];
 
-// Opportunity and civic pathway data currently live in index.html and are cached with it.
+// Cache the verified opportunity dataset with the app shell for offline filtering.
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
