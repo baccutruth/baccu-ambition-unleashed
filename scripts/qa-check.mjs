@@ -18,13 +18,23 @@ assert(html.includes('<strong>iPhone:</strong>'), 'iPhone install guidance missi
 assert(html.includes('currently reporting an error'), 'Ekurhuleni portal warning missing');
 assert(html.includes('Applications close 30 November 2026'), 'Ekurhuleni notice deadline missing');
 
-for (const file of ['styles.css', 'app.js', 'manifest.webmanifest', 'sw.js', 'assets/icon.svg', 'docs/PWA-INSTALLATION.md']) {
+for (const file of ['styles.css', 'app.js', 'spanixpress.html', 'spanixpress.css', 'spanixpress.js', 'manifest.webmanifest', 'sw.js', 'assets/icon.svg', 'docs/PWA-INSTALLATION.md', 'docs/SPANI-XPRESS-PUBLISHING-ASSISTANT.md']) {
   assert(existsSync(file), 'Required local asset or guide missing: ' + file);
 }
 assert.equal(manifest.lang, 'en-ZA');
 assert.equal(manifest.display, 'standalone');
 assert(manifest.icons.some(icon => icon.purpose === 'maskable'), 'Maskable app icon missing');
-assert(sw.includes('baccu-ambition-v3'), 'Service worker cache version was not updated');
+assert(sw.includes('baccu-ambition-v4'), 'Service worker cache version was not updated');
+assert(sw.includes('./spanixpress.html') && sw.includes('./spanixpress.js'), 'SpaniXpress assistant must be cached for offline use');
+const spanixHtml = readFileSync('spanixpress.html', 'utf8');
+const spanixJs = readFileSync('spanixpress.js', 'utf8');
+for (const id of ['spanix-form', 'verification-confirm', 'facebook-caption', 'copy-caption', 'copy-application', 'download-image', 'mark-shared']) assert(spanixHtml.includes('id="' + id + '"'), 'SpaniXpress control missing: ' + id);
+assert(spanixHtml.includes('https://www.facebook.com/share/g/1Q8yaPsWVt/'), 'SpaniXpress group destination missing');
+assert(spanixJs.includes('const buildCaption='), 'SpaniXpress caption builder missing');
+assert(spanixJs.includes('protocol===\'https:\''), 'SpaniXpress HTTPS URL guard missing');
+assert(spanixJs.includes('confirmCheck.checked'), 'SpaniXpress source attestation missing');
+assert(spanixJs.includes('canvas.toBlob'), 'SpaniXpress PNG export missing');
+assert(spanixHtml.includes('Direct third-party group publishing is not available'), 'Facebook group publishing boundary missing');
 
 const officialSources = [
   'https://www.ekurhuleni.gov.za/campaigns/applications-for-the-2027-community-bursary-programme-now-open/',
@@ -59,4 +69,4 @@ assert(!existsSync('.github/workflows/jekyll-gh-pages.yml'), 'Duplicate Jekyll d
 assert(!existsSync('.github/workflows/deploy-pages.yml'), 'Duplicate manual deployment workflow remains');
 assert(readFileSync('.github/workflows/static.yml', 'utf8').includes('Deploy BACCU Ambition Unleashed to GitHub Pages'));
 
-console.log('BACCU static QA passed: page sections, local fallback, official links, PWA setup and one deployment workflow.');
+console.log('BACCU static QA passed: core platform, SpaniXpress publishing assistant, verification safeguards, PWA setup and one deployment workflow.');
