@@ -34,3 +34,9 @@ body{background:var(--black);color:var(--white)}
   .menu-toggle{display:none}
   .toast{bottom:calc(80px + env(safe-area-inset-bottom))}
 }
+
+.footer-about{max-width:430px;line-height:1.55}
+.footer-about>strong{display:block;color:var(--gold);font-size:11px;letter-spacing:.08em}
+.footer-about p{margin:5px 0 0}
+.footer-about .footer-disclaimer{color:#c7c2b5}
+@media(max-width:680px){.footer-about{max-width:100%}}
