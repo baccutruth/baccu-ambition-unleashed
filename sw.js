@@ -1,4 +1,4 @@
-const CACHE_NAME = 'baccu-ambition-v7';
+const CACHE_NAME = 'baccu-ambition-v8';
 const APP_SHELL = [
   './',
   './index.html',
@@ -8,6 +8,9 @@ const APP_SHELL = [
   './manifest.json',
   './manifest.webmanifest',
   './assets/icon.svg',
+  './assets/cover-art.webp',
+  './assets/icon-192.png',
+  './assets/icon-512.png',
   './spanixpress.html',
   './spanixpress.css',
   './spanixpress.js'

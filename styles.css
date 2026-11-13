@@ -95,3 +95,6 @@ body{background:var(--black);color:var(--white)}
 .tool-recommendation small{flex-basis:100%;color:#999;font-size:9px}
 .prompt-button.copied{color:var(--white);border-color:var(--gold)}
 @media(max-width:680px){.tool-card{min-height:280px}}
+
+
+.hero-cover-art{display:block;width:220px;height:220px;object-fit:contain;object-position:center;margin:0 auto 18px;filter:drop-shadow(0 6px 22px #d4af3720)}
