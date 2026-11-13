@@ -126,17 +126,25 @@ function showToast(message){
   clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
 }
 async function copyText(value){
-  if(!value){showToast('There is no prompt to copy yet.');return;}
+  if(!value){showToast('There is no prompt to copy yet.');return false;}
   try{
     if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);}
     else{
       const helper=document.createElement('textarea');helper.value=value;helper.setAttribute('readonly','');helper.style.position='absolute';helper.style.left='-9999px';document.body.appendChild(helper);helper.select();
       const copied=document.execCommand('copy');helper.remove();if(!copied)throw new Error('Copy unavailable');
     }
-    showToast('Prompt copied. Paste it into your AI assistant.');
-  }catch(error){showToast('Copy is unavailable here. Select the prompt and copy it manually.');}
+    showToast('Copied!');
+    return true;
+  }catch(error){showToast('Copy is unavailable here. Select the prompt and copy it manually.');return false;}
 }
-document.querySelectorAll('.prompt-button').forEach(button=>button.addEventListener('click',()=>copyText(button.dataset.prompt||'')));
+document.querySelectorAll('.prompt-button').forEach(button=>button.addEventListener('click',async()=>{
+  const copied=await copyText(button.dataset.prompt||'');
+  if(!copied)return;
+  clearTimeout(button.copyResetTimer);
+  button.textContent='Copied!';
+  button.classList.add('copied');
+  button.copyResetTimer=setTimeout(()=>{button.textContent='Copy Prompt';button.classList.remove('copied');},1800);
+}));
 
 const roleInput=document.querySelector('#prompt-role');
 const experienceInput=document.querySelector('#prompt-experience');
