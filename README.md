@@ -17,6 +17,7 @@ Pull requests run release checks but do not deploy. Merge to `main` triggers the
 - Searchable, filterable Opportunity Hub guidance pathways.
 - Daily Wisdom & AI Toolkit with copy-ready prompts and a prompt builder.
 - Civic & Youth Connect official institution links.
+- SpaniXpress Publishing Assistant: copy-ready, human-reviewed Facebook Group posts and branded PNG export.
 - PWA manifest, service-worker app shell and installation guidance.
 - No login, tracking, AI API, paid backend or personal-data collection.
 
@@ -28,6 +29,10 @@ The Opportunity Hub is not a live vacancies feed. Do not infer deadlines, amount
 
 National opportunities remain eligible across all nine provinces. Display order prioritises Actonville, Benoni and Ekurhuleni, then the rest of Gauteng, then the rest of South Africa.
 
+## SpaniXpress publishing assistant
+
+The [SpaniXpress assistant](spanixpress.html) prepares a Facebook caption and optional PNG artwork from details the administrator checks against an official employer or programme-owner source. The tool requires a source URL, application URL, source-check date and human attestation. This attestation is not automatic BACCU verification. The administrator must review and paste the content into the [SpaniXpress Facebook Group](https://www.facebook.com/share/g/1Q8yaPsWVt/) and publish or schedule through Facebook. Direct third-party Group publishing is not supported. See [feature safeguards](docs/SPANI-XPRESS-PUBLISHING-ASSISTANT.md).
+
 ## PWA installation
 
 Android: open the site in Chrome and use its Install app prompt or menu → Install app / Add to Home screen. iPhone: open in Safari, Share → Add to Home Screen. Options vary by device. Device testing remains part of release QA.
@@ -36,7 +41,7 @@ The service worker caches the local app shell. The homepage, internal sections, 
 
 ## Privacy and cost
 
-The static site does not collect application details, create accounts or call paid AI services. The prompt builder only prepares text for users to copy into an AI assistant.
+The static site does not collect application details, create accounts or call paid AI services. The prompt builder only prepares text for users to copy into an AI assistant. The SpaniXpress assistant prepares a post locally in the browser; it does not collect Facebook credentials, use access tokens or publish directly to groups.
 
 ## Trust disclaimer
 
