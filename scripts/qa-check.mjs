@@ -40,7 +40,13 @@ assert(spanixHtml.includes('Direct third-party group publishing is not available
 const conciergeHtml = readFileSync('concierge.html', 'utf8');
 const conciergeJs = readFileSync('concierge.js', 'utf8');
 const conciergeCss = readFileSync('concierge.css', 'utf8');
-for (const id of ['source-search', 'source-grid', 'source-empty']) assert(conciergeHtml.includes('id="' + id + '"'), 'Concierge control missing: ' + id);
+for (const id of ['source-search', 'source-grid', 'source-empty', 'source-status']) assert(conciergeHtml.includes('id="' + id + '"'), 'Concierge control missing: ' + id);
+assert(/id="source-status"[^>]*role="status"[^>]*aria-live="polite"/.test(conciergeHtml), 'Concierge search status must be announced accessibly');
+assert(conciergeJs.includes("status.textContent=count===0?"), 'Concierge must announce empty search results');
+assert(conciergeCss.includes('.concierge-search input:focus-visible'), 'Concierge search input needs a visible keyboard focus indicator');
+assert(conciergeHtml.includes('data-keywords="learnership learnerships"'), 'SA Youth must be searchable by learnership terms');
+assert(conciergeHtml.includes('data-keywords="bursaries"'), 'Funza Lushaka must be searchable by bursaries');
+assert(conciergeJs.includes('dataset.keywords'), 'Concierge search must include keyword aliases');
 for (const url of ['https://www.gov.za/government-jobs-week', 'https://www.labour.gov.za/Vacancies/Pages/Vacancies-List.aspx', 'https://sayouth.mobi/', 'https://rems.ekurhuleni.gov.za/eRecruitment/', 'https://www.nyda.gov.za/', 'https://www.nsfas.org.za/', 'https://www.funzalushaka.doe.gov.za/']) assert(conciergeHtml.includes(url), 'Concierge official source missing: ' + url);
 assert(conciergeHtml.includes('target="_blank" rel="noopener noreferrer"'), 'Concierge must open original provider sites safely');
 assert(conciergeHtml.includes('not a claim that every opportunity is open'), 'Concierge source verification disclaimer missing');
