@@ -1,0 +1,80 @@
+{
+  "last_verified_date": "2026-11-14",
+  "opportunities": [
+    {
+      "id": "nyda-grant-programme",
+      "title": "NYDA Grant Programme",
+      "category": "grants",
+      "provider": "National Youth Development Agency (NYDA)",
+      "opportunity_type": "Youth enterprise grant and business development support",
+      "eligibility": "South African citizens aged 18–35 with relevant or potential enterprise skills; additional business criteria and exclusions apply.",
+      "location": "South Africa; check the NYDA branch or portal for service access.",
+      "application_status": "Programme information available; no fixed closing date stated",
+      "closing_date": "No closing date stated on the official programme page.",
+      "last_verified_date": "2026-11-14",
+      "summary": "Financial and non-financial support for eligible young entrepreneurs. Confirm the full criteria and current application process with NYDA.",
+      "source_url": "https://www.nyda.gov.za/Products-Services/NYDA-Grant-Programme.html",
+      "apply_url": "https://erp.nyda.gov.za/register"
+    },
+    {
+      "id": "mict-2027-28-discretionary-grant",
+      "title": "MICT SETA 2027/28 Discretionary Grant",
+      "category": "grants",
+      "provider": "Media, Information and Communication Technologies Sector Education and Training Authority (MICT SETA)",
+      "opportunity_type": "Sector discretionary grant",
+      "eligibility": "The current MICT SETA notice invites eligible stakeholders in the Media and ICT sub-sectors. It does not identify individual learners as direct applicants.",
+      "location": "Media and ICT sub-sectors; the notice does not state a geographic restriction.",
+      "application_status": "Funding window open to eligible stakeholders as verified 14 November 2026",
+      "closing_date": "30 November 2026, midnight (timezone not stated by the notice).",
+      "last_verified_date": "2026-11-14",
+      "summary": "A stakeholder funding window, not an individual learner grant. Recheck the official notice and detailed programme requirements before applying.",
+      "source_url": "https://mict.org.za/",
+      "apply_url": "https://mict.org.za/what-we-do/discretionary-grants/"
+    },
+    {
+      "id": "mict-learnership-information",
+      "title": "MICT SETA Learnerships",
+      "category": "learnerships",
+      "provider": "MICT SETA",
+      "opportunity_type": "Learnership programme information",
+      "eligibility": "The MICT SETA page describes learnerships as an entry into the industry for unemployed learners. Specific criteria are set by the recruiting employer and training provider.",
+      "location": "Varies by employer, service provider and training provider.",
+      "application_status": "Guidance page; no general learner intake listed",
+      "closing_date": "No general closing date stated on the official information page.",
+      "last_verified_date": "2026-11-14",
+      "summary": "MICT SETA facilitates programmes, while employers and service or training providers recruit learners. Check their individual notices for open positions.",
+      "source_url": "https://mict.org.za/learnerships/",
+      "apply_url": "https://mict.org.za/learnerships/"
+    },
+    {
+      "id": "seda-business-support",
+      "title": "SEDA Business Support Services",
+      "category": "entrepreneurship",
+      "provider": "Small Enterprise Development Agency (SEDA)",
+      "opportunity_type": "Business advice, training, consultancy and mentorship",
+      "eligibility": "Entrepreneurs with a business idea and existing entrepreneurs or small enterprises; specific services may have their own criteria.",
+      "location": "South Africa; access depends on SEDA's service network and the particular service.",
+      "application_status": "Ongoing service information; not a grant or confirmed funding offer",
+      "closing_date": "No general closing date stated.",
+      "last_verified_date": "2026-11-14",
+      "summary": "SEDA provides non-financial business support. Contact SEDA to confirm the right service and whether it is available in your area.",
+      "source_url": "https://www.seda.org.za/",
+      "apply_url": "https://www.seda.org.za/"
+    },
+    {
+      "id": "mict-skills-programmes",
+      "title": "MICT SETA Skills Programmes",
+      "category": "ai-digital",
+      "provider": "MICT SETA",
+      "opportunity_type": "Media, information and ICT sector skills programme information",
+      "eligibility": "The page says programmes are implemented by employers for employed and unemployed learners. Check the specific employer or accredited provider for entry criteria.",
+      "location": "Set by each employer and training provider; no general location is listed.",
+      "application_status": "Guidance page; no current learner intake listed",
+      "closing_date": "No general closing date stated on the official information page.",
+      "last_verified_date": "2026-11-14",
+      "summary": "Information about sector skills programmes, not a live AI course listing. Confirm the exact digital or ICT programme, accreditation and intake with its provider.",
+      "source_url": "https://mict.org.za/skills-programmes-2/",
+      "apply_url": "https://mict.org.za/skills-programmes-2/"
+    }
+  ]
+}
