@@ -50,3 +50,20 @@ body{background:var(--black);color:var(--white)}
 .install-dismiss{align-self:flex-start;flex-shrink:0;width:25px;height:25px;padding:0;background:none;border:1px solid var(--line);color:var(--white);font-size:18px;line-height:1;cursor:pointer}
 .install-action:hover{background:#e5c158}
 @media(max-width:680px){.install-banner{left:10px;right:10px;bottom:calc(78px + env(safe-area-inset-bottom));width:auto;gap:9px;padding:12px}.install-banner-copy p{max-width:250px}}
+
+/* Inline BACCU emblem, navigational marks and geometric dividers */
+.brand-emblem{display:block;width:39px;height:39px;flex:0 0 39px;filter:drop-shadow(0 3px 8px #0008)}
+.emblem-shield{fill:#0a0a0a;stroke:#d4af37;stroke-width:1.4}
+.emblem-crown,.emblem-line{fill:none;stroke:#d4af37;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.emblem-gem{fill:#6b0f1a;stroke:#d4af37;stroke-width:1}
+.pattern-divider{display:block;width:100%;height:28px;background:#0a0a0a}
+.nav a{display:inline-flex;align-items:center;gap:7px}
+.nav-icon{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:#d4af37;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.category-marker{display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;color:#d4af37;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.category-marker svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.opportunity-card .card-top{gap:8px}
+@media(max-width:680px){
+  .nav a{flex-direction:column;gap:2px;font-size:9px}
+  .nav-icon{width:18px;height:18px;flex-basis:18px}
+  .pattern-divider{height:22px}
+}
