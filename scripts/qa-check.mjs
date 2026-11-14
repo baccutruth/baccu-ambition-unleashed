@@ -6,6 +6,7 @@ const js = readFileSync('app.js', 'utf8');
 const css = readFileSync('styles.css', 'utf8');
 const sw = readFileSync('sw.js', 'utf8');
 const manifest = JSON.parse(readFileSync('manifest.webmanifest', 'utf8'));
+const manifestJson = JSON.parse(readFileSync('manifest.json', 'utf8'));
 
 for (const id of ['home', 'opportunities', 'toolkit', 'connect', 'about', 'primary-nav', 'opportunity-search', 'opportunity-grid', 'no-results', 'prompt-role', 'prompt-experience', 'generated-prompt', 'install-app']) {
   assert(html.includes('id="' + id + '"'), 'Required page element missing: ' + id);
@@ -17,14 +18,24 @@ assert(html.includes('<strong>Android:</strong>'), 'Android install guidance mis
 assert(html.includes('<strong>iPhone:</strong>'), 'iPhone install guidance missing');
 assert(html.includes('currently reporting an error'), 'Ekurhuleni portal warning missing');
 assert(html.includes('Applications close 30 November 2026'), 'Ekurhuleni notice deadline missing');
+const coverArtTag = html.match(/<img\\b[^>]*src="assets\\/cover-art\\.webp"[^>]*>/)?.[0] || '';
+assert(coverArtTag.includes('width="220"'), 'Hero cover art width missing');
+assert(coverArtTag.includes('height="220"'), 'Hero cover art height missing');
+assert(coverArtTag.includes('alt="BACCU Ambition Unleashed Royal Crest"'), 'Hero cover art alt text missing');
+for (const title of ['CV &amp; Cover Letter Builder', 'Interview Preparation', 'Small Business &amp; Side-Hustle Planning', 'Personal Budgeting']) assert(html.includes('<h3>' + title + '</h3>'), 'AI Toolkit card missing: ' + title);
+assert.equal((html.match(/class="prompt-button"/g) || []).length, 4, 'All four AI Toolkit cards must have a Copy Prompt button');
 
-for (const file of ['styles.css', 'app.js', 'spanixpress.html', 'spanixpress.css', 'spanixpress.js', 'manifest.webmanifest', 'sw.js', 'assets/icon.svg', 'docs/PWA-INSTALLATION.md', 'docs/SPANI-XPRESS-PUBLISHING-ASSISTANT.md']) {
+for (const file of ['styles.css', 'app.js', 'spanixpress.html', 'spanixpress.css', 'spanixpress.js', 'manifest.webmanifest', 'manifest.json', 'sw.js', 'assets/icon.svg', 'assets/cover-art.webp', 'assets/icon-192.png', 'assets/icon-512.png', 'docs/PWA-INSTALLATION.md', 'docs/SPANI-XPRESS-PUBLISHING-ASSISTANT.md']) {
   assert(existsSync(file), 'Required local asset or guide missing: ' + file);
 }
 assert.equal(manifest.lang, 'en-ZA');
 assert.equal(manifest.display, 'standalone');
-assert(manifest.icons.some(icon => icon.purpose === 'maskable'), 'Maskable app icon missing');
-assert(sw.includes('baccu-ambition-v4'), 'Service worker cache version was not updated');
+for (const currentManifest of [manifest, manifestJson]) {
+  assert(currentManifest.icons.some(icon => icon.src === 'assets/icon-192.png' && icon.sizes === '192x192' && icon.type === 'image/png'), '192px PNG app icon missing');
+  assert(currentManifest.icons.some(icon => icon.src === 'assets/icon-512.png' && icon.sizes === '512x512' && icon.type === 'image/png' && icon.purpose.includes('maskable')), '512px maskable PNG app icon missing');
+}
+assert(sw.includes("CACHE_NAME = 'baccu-ambition-v8'"), 'Service worker cache version must be v8');
+for (const asset of ['./assets/cover-art.webp', './assets/icon-192.png', './assets/icon-512.png']) assert(sw.includes(asset), 'PWA precache asset missing: ' + asset);
 assert(sw.includes('./spanixpress.html') && sw.includes('./spanixpress.js'), 'SpaniXpress assistant must be cached for offline use');
 const spanixHtml = readFileSync('spanixpress.html', 'utf8');
 const spanixJs = readFileSync('spanixpress.js', 'utf8');
@@ -69,4 +80,4 @@ assert(!existsSync('.github/workflows/jekyll-gh-pages.yml'), 'Duplicate Jekyll d
 assert(!existsSync('.github/workflows/deploy-pages.yml'), 'Duplicate manual deployment workflow remains');
 assert(readFileSync('.github/workflows/static.yml', 'utf8').includes('Deploy BACCU Ambition Unleashed to GitHub Pages'));
 
-console.log('BACCU static QA passed: core platform, SpaniXpress publishing assistant, verification safeguards, PWA setup and one deployment workflow.');
+console.log('BACCU static QA passed: core platform, v8 PWA shell assets and manifests, AI Toolkit cards, SpaniXpress safeguards and deployment workflow.');
