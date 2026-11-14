@@ -96,6 +96,7 @@ const context = {
   window: { isSecureContext: true, addEventListener() {} },
   navigator: { clipboard: { writeText: async value => copied.push(value) }, serviceWorker: { register: async () => ({}) } },
   location: { protocol: 'https:', href: 'https://example.test/' },
+  URL,
   fetch: async () => ({ ok: true, json: async () => ({ opportunities: sampleOpportunities }) }),
   setTimeout: () => 1,
   clearTimeout() {},
