@@ -18,7 +18,8 @@ assert(html.includes('<strong>Android:</strong>'), 'Android install guidance mis
 assert(html.includes('<strong>iPhone:</strong>'), 'iPhone install guidance missing');
 assert(html.includes('currently reporting an error'), 'Ekurhuleni portal warning missing');
 assert(html.includes('Applications close 30 November 2026'), 'Ekurhuleni notice deadline missing');
-const coverArtTag = html.match(/<img\\b[^>]*src="assets\\/cover-art\\.webp"[^>]*>/)?.[0] || '';
+const coverArtSourceIndex = html.indexOf('src="assets/cover-art.webp"');
+const coverArtTag = html.slice(html.lastIndexOf('<img', coverArtSourceIndex), html.indexOf('>', coverArtSourceIndex) + 1);
 assert(coverArtTag.includes('width="220"'), 'Hero cover art width missing');
 assert(coverArtTag.includes('height="220"'), 'Hero cover art height missing');
 assert(coverArtTag.includes('alt="BACCU Ambition Unleashed Royal Crest"'), 'Hero cover art alt text missing');

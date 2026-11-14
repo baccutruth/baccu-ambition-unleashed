@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 class ElementMock {
   constructor(text = '') {
-    this.textContent = text;
+    this._textContent = text;
     this.value = '';
     this.hidden = false;
     this.dataset = {};
@@ -24,6 +24,8 @@ class ElementMock {
       }
     };
   }
+  get textContent() { return this._textContent + this.children.map(child => child.textContent || '').join(''); }
+  set textContent(value) { this._textContent = String(value); this.children = []; }
   addEventListener(type, handler) { (this.events[type] ||= []).push(handler); }
   setAttribute(name, value) { this.attributes[name] = value; }
   getAttribute(name) { return this.attributes[name]; }
