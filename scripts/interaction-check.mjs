@@ -32,6 +32,7 @@ class ElementMock {
   append(...nodes) { this.children.push(...nodes); }
   appendChild(node) { this.children.push(node); return node; }
   replaceChildren(...nodes) { this.children = [...nodes]; }
+  querySelectorAll() { return []; }
   focus() {}
   select() {}
   remove() {}
